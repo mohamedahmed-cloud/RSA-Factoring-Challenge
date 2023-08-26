@@ -1,1 +1,39 @@
-from primeNumber import our_Prime
+#!/usr/bin/python3
+
+import math
+import sys
+
+def prime_factors(n):
+    factors = []
+
+    while n % 2 == 0:
+        factors.append(2)
+        n //= 2
+    x = 3
+    step = 2
+    while x <= math.sqrt(n):
+        while n % x == 0:
+            factors.append(x)
+            n //= x
+        x += step
+
+    if n > 2:
+        factors.append(n)
+
+    return factors
+
+def main():
+    filename = sys.argv[1]
+
+    with open(filename, "r") as f:
+        all_numbers = int(f.read().strip())
+        max_number = all_numbers
+
+        factors = prime_factors(max_number)
+
+        p1, p2 = factors
+        print(f"{max_number}={p2}*{p1}")
+        
+
+if __name__ == "__main__":
+    main()
