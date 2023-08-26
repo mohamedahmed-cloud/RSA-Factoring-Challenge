@@ -1,0 +1,29 @@
+#!/usr/bin/python3
+from sys import argv
+import math
+
+def isprime(i):
+    """
+     Prime Function to find prime Number.
+    """
+    if i in [0,1]:
+        return False
+    for j in range(2, int(math.sqrt(i)) + 1):
+        if i % j == 0:
+            return False
+        
+    return True
+
+with open(argv[1], "r") as f:
+	all = int(f.read())
+	
+	
+		# print(maxNumber)
+	maxNumber = int(all)
+	# print(maxNumber)
+	p = 2
+	for i in range(maxNumber):
+		if maxNumber % p == 0 and isprime(p) and isprime(maxNumber // p):
+			break
+		p += 1
+	print(f"{maxNumber}={maxNumber // p}*{p}")
