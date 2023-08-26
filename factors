@@ -1,0 +1,16 @@
+#!/usr/bin/python3
+
+from sys import argv
+with open(argv[1], "r") as f:
+	all = f.read()
+	all = all.split("\n")
+	for maxNumber in all:
+		# print(maxNumber)
+		maxNumber = int(maxNumber)
+		# print(maxNumber)
+		p = 2
+		for i in all:
+			if maxNumber % p == 0:
+				break
+			p += 1
+		print(f"{maxNumber}={maxNumber // p}*{p}")
