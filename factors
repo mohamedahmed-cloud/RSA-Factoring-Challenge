@@ -1,6 +1,10 @@
 #!/usr/bin/python3
 
 from sys import argv
+if len(argv) < 2:
+	print('Usage: factors <file>')
+	quit()
+
 with open(argv[1], "r") as f:
 	all = f.read()
 	all = all.split("\n")
